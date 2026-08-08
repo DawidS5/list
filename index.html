@@ -2,17 +2,31 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello World</title>
 </head>
-
 <body>
 
-    <h1>Hello World</h1>
+<h1>Hello World</h1>
 
-    <a href="hello.pdf" download="hello.pdf">
-        <button>Pobierz PDF</button>
-    </a>
+<script>
+    window.addEventListener("load", () => {
+        const content = "Hello World!\nTo jest przykładowy plik tekstowy.";
+
+        const blob = new Blob([content], {
+            type: "text/plain"
+        });
+
+        const url = URL.createObjectURL(blob);
+
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "hello.txt";
+
+        link.click();
+
+        URL.revokeObjectURL(url);
+    });
+</script>
 
 </body>
 </html>
