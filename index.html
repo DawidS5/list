@@ -4,27 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello World</title>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js"></script>
 </head>
+
 <body>
 
     <h1>Hello World</h1>
 
-    <button onclick="downloadPDF()">Pobierz PDF</button>
-
-    <script>
-        function downloadPDF() {
-            const { jsPDF } = window.jspdf;
-
-            const pdf = new jsPDF();
-
-            pdf.text("Hello World!", 20, 30);
-            pdf.text("To jest przykładowy plik PDF.", 20, 45);
-
-            pdf.save("hello.pdf");
-        }
-    </script>
+    <a href="hello.pdf" download="hello.pdf">
+        <button>Pobierz PDF</button>
+    </a>
 
 </body>
 </html>
